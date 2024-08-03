@@ -4,3 +4,6 @@ langchain_openai
 langchain_anthropic
 python-dotenv
 psycopg2
+psycopg
+langchain-postgres
+langgraph
