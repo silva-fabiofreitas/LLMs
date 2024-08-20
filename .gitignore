@@ -166,3 +166,6 @@ cython_debug/
 */.ipynb_checkpoints/*
 *.idea
 *.db
+*.bin
+.vscode/settings.json
+chroma.sqlite3

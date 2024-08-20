@@ -7,3 +7,5 @@ psycopg2
 psycopg
 langchain-postgres
 langgraph
+langchain_chroma
+pypdf
