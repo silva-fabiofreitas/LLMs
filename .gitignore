@@ -169,3 +169,5 @@ cython_debug/
 *.bin
 .vscode/settings.json
 chroma.sqlite3
+langchain-docs
+db

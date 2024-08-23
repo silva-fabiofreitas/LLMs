@@ -9,3 +9,4 @@ langchain-postgres
 langgraph
 langchain_chroma
 pypdf
+langchainhub
