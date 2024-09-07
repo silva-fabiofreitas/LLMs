@@ -10,3 +10,5 @@ langgraph
 langchain_chroma
 pypdf
 langchainhub
+langchain_experimental
+tabulate
