@@ -12,3 +12,6 @@ pypdf
 langchainhub
 langchain_experimental
 tabulate
+langgraph
+grandalf 
+
