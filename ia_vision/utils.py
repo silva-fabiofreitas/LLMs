@@ -1,6 +1,6 @@
 import base64
 
-def convert_img_in_base64(path, file=None):
+def encode_base64(path, file=None):
     if file:
         return base64.b64encode(image).decode("utf-8")
     
