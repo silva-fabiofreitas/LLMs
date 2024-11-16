@@ -36,6 +36,7 @@ app.get_graph().draw_mermaid_png(output_file_path='graph.png')
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    res = app.invoke({'input':"What is the weather in sf? Write it and then Trible it"})
+    res = app.invoke({'input':"Qual foi o ultimo resultado do jogo do flamengo na copa do brasil em 2024? Jogou contra quem, multiplique o resultado por três"})
+    # res = app.invoke({'input':"What is the weather in sf? Write it and then Trible it"})
     print(res['agent_outcome'].return_values['output'])
 
