@@ -8,7 +8,8 @@ load_dotenv()
 from ingestion import retriever
 from graph.chains.retrieval_grader import retrieval_grader, GradeDocuments
 from graph.chains.generation import generation_chain
-
+from graph.chains.hallucination_grader import hallucinations_grader
+from graph.chains.router import question_router
 
 
 def test_retrival_grader_answer_yes():
@@ -38,3 +39,31 @@ def test_generation_chain():
     docs = retriever.invoke(question)
     res = generation_chain.invoke({'context':docs, 'question':question})
     pprint(res)
+
+def test_hallucination_grader_yes():
+    question = 'ciclo virtuoso'
+    docs = retriever.invoke(question)
+    generation = generation_chain.invoke({'context': docs, 'question': question})
+    res = hallucinations_grader.invoke({'documents':docs, 'generation':generation})
+
+    assert res.binary_score
+
+def test_hallucination_grader_no():
+    question = 'ciclo virtuoso'
+    docs = retriever.invoke(question)
+    res = hallucinations_grader.invoke({'documents':docs, 'generation':'A vaca foi para o brejo'})
+
+    assert not res.binary_score
+
+def test_to_vectorstore():
+    question = 'ciclo virtuoso'
+    res = question_router.invoke({'question':question})
+
+    assert res.datasource == 'vectorstore'
+
+def test_to_websearch():
+    question = 'Vaca Maro'
+    res = question_router.invoke({'question':question})
+
+    assert res.datasource == 'websearch'
+
